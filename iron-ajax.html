@@ -329,8 +329,11 @@ element.
           for (var i = 0; i < value.length; i++) {
             queryParts.push(param + '=' + window.encodeURIComponent(value[i]));
           }
-        } else if (value !== null) {
-          queryParts.push(param + '=' + window.encodeURIComponent(value));
+        }else if (value !== null) {
+          if( typeof value !== "object" ) {
+            queryParts.push(param + '=' + window.encodeURIComponent(value));
+          }    
+          queryParts.push(param+"="+JSON.stringify(value));
         } else {
           queryParts.push(param);
         }
