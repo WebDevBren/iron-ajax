@@ -330,6 +330,9 @@ element.
             queryParts.push(param + '=' + window.encodeURIComponent(value[i]));
           }
         } else if (value !== null) {
+          if (typeof value === 'object') {
+            queryParts.push(param + '=' + JSON.stringify(value));
+          }  
           queryParts.push(param + '=' + window.encodeURIComponent(value));
         } else {
           queryParts.push(param);
