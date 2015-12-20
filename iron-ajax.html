@@ -379,7 +379,9 @@ element.
 
       if (this.headers instanceof Object) {
         for (header in this.headers) {
-          headers[header] = this.headers[header].toString();
+          if(  this.headers[header] !== null ) {
+            headers[header] = this.headers[header].toString();
+          }
         }
       }
 
